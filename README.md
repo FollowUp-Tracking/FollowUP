@@ -1,2 +1,2 @@
 # FollowUP
-Follow Up Web Application
+Follow Up Backend
