@@ -1,7 +1,6 @@
 package es.upm.dit.isst.followmeapi.model;
 
 import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -9,39 +8,40 @@ import javax.persistence.Id;
 public class Pedido {
     
     @Id
-    private long numeroSeguimiento;
-    private double[][] origen; 
-    private double[][] destino;
+    private String numeroSeguimiento;
+    private Traza origen; 
+    private Traza destino;
     private Date fecha;
     private String producto;
     private String correo;
     private int idRepartidor;
-    private double[][] trazas;
+    private Traza[] trazas;
+    private String empresa;
 
     public Pedido() {
     }
 
-    public long getNumero() {
+    public String getNumeroSeguimiento() {
         return numeroSeguimiento;
     }
 
-    public void setNumero(long numeroSeguimiento) {
+    public void setNumeroSeguimiento(String numeroSeguimiento) {
         this.numeroSeguimiento = numeroSeguimiento;
     }
 
-    public double[][] getOrigen() {
+    public Traza getOrigen() {
         return origen;
     }
 
-    public void setOrigen(double[][] origen) {
+    public void setOrigen(Traza origen) {
         this.origen = origen;
     }
 
-    public double[][] getDestino() {
+    public Traza getDestino() {
         return destino;
     }
 
-    public void setDestino(double[][] destino) {
+    public void setDestino(Traza destino) {
         this.destino = destino;
     }
 
@@ -77,11 +77,19 @@ public class Pedido {
         this.idRepartidor = idRepartidor;
     }
 
-    public double[][] getTrazas() {
+    public Traza[] getTrazas() {
         return trazas;
     }
 
-    public void setTrazas(double[][] trazas) {
+    public void setTrazas(Traza[] trazas) {
         this.trazas = trazas;
+    }
+
+    public String getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
     }
 }
