@@ -1,4 +1,4 @@
-package es.upm.dit.isst.followmeapi.Controller;
+/*package es.upm.dit.isst.followmeapi.controller;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import es.upm.dit.isst.followmeapi.Repository.PedidoRepository;
+
 import es.upm.dit.isst.followmeapi.model.Pedido;
+import es.upm.dit.isst.followmeapi.repository.PedidoRepository;
 
 @RestController
 public class PedidoController {
@@ -65,4 +66,4 @@ public class PedidoController {
       pedidoRepository.deleteById(id);
       return ResponseEntity.ok().body(null);
     }
-}
+}*/

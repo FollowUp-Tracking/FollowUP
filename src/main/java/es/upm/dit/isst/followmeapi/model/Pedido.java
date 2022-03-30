@@ -1,22 +1,30 @@
-package es.upm.dit.isst.followmeapi.model;
+/*package es.upm.dit.isst.followmeapi.model;
 
 import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Pedido {
     
     @Id
     private String numeroSeguimiento;
-    private Traza origen; 
+    private Traza origen;
     private Traza destino;
     private Date fecha;
     private String producto;
     private String correo;
     private int idRepartidor;
-    private Traza[] trazas;
+    @OneToMany(targetEntity=Traza.class, mappedBy="pedido", fetch=FetchType.EAGER)
+    private List<Traza> trazas;
     private String empresa;
+
 
     public Pedido() {
     }
@@ -77,11 +85,11 @@ public class Pedido {
         this.idRepartidor = idRepartidor;
     }
 
-    public Traza[] getTrazas() {
+    public List<Traza> getTrazas() {
         return trazas;
     }
 
-    public void setTrazas(Traza[] trazas) {
+    public void setTrazas(List<Traza> trazas) {
         this.trazas = trazas;
     }
 
@@ -92,4 +100,4 @@ public class Pedido {
     public void setEmpresa(String empresa) {
         this.empresa = empresa;
     }
-}
+}*/
