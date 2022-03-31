@@ -67,7 +67,7 @@ public class TrazaController {
       return ResponseEntity.ok().body(null);
     }
 
-    @GetMapping("/traza/producto/{id}")
+    @GetMapping("/trazas/producto/{id}")
     List<Traza> readProducto(@PathVariable Integer id) {
       return (List<Traza>) trazaRepository.findByIdPedido(id);
     }
