@@ -37,7 +37,7 @@ public class TrazaController {
     @PostMapping("/trazas")
     ResponseEntity<Traza> create(@RequestBody Traza newTraza) throws URISyntaxException {
         Traza result = trazaRepository.save(newTraza);
-        return ResponseEntity.created(new URI("/traza/" + result.getID())).body(result);
+        return ResponseEntity.created(new URI("/traza/" + result.getId())).body(result);
     }
 
     @GetMapping("/trazas/{id}")
