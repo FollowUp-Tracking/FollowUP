@@ -17,6 +17,7 @@ public class Traza {
     private String vendedor;
     private String producto;
     private int idRepartidor;
+    private int estado;
 
     public Traza() {
     }
@@ -91,5 +92,13 @@ public class Traza {
 
     public void setIdRepartidor(int idRepartidor) {
         this.idRepartidor = idRepartidor;
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
     }
 }
