@@ -1,23 +1,31 @@
 package es.upm.dit.isst.followmeapi.model;
 
 import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "trazas")
 public class Traza {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private double latitud;
+
     private double longitud;
+
     private Date fecha;
+    
+    @Column(nullable = false, unique = true)
     private int idPedido;
-    private String cliente;
-    private String vendedor;
-    private String producto;
-    private int idRepartidor;
-    private int estado;
+
 
     public Traza() {
     }
@@ -60,45 +68,5 @@ public class Traza {
 
     public void setIdPedido(int idPedido) {
         this.idPedido = idPedido;
-    }
-
-    public String getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
-    }
-
-    public String getVendedor() {
-        return vendedor;
-    }
-
-    public void setVendedor(String vendedor) {
-        this.vendedor = vendedor;
-    }
-
-    public String getProducto() {
-        return producto;
-    }
-
-    public void setProducto(String producto) {
-        this.producto = producto;
-    }
-
-    public int getIdRepartidor() {
-        return idRepartidor;
-    }
-
-    public void setIdRepartidor(int idRepartidor) {
-        this.idRepartidor = idRepartidor;
-    }
-
-    public int getEstado() {
-        return estado;
-    }
-
-    public void setEstado(int estado) {
-        this.estado = estado;
     }
 }

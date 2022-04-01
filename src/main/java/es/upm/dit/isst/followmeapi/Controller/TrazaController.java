@@ -52,10 +52,6 @@ public class TrazaController {
             traza.setLongitud(newTraza.getLongitud());
             traza.setFecha(newTraza.getFecha());
             traza.setIdPedido(newTraza.getIdPedido());
-            traza.setCliente(newTraza.getCliente());
-            traza.setVendedor(newTraza.getVendedor());
-            traza.setProducto(newTraza.getProducto());
-            traza.setIdRepartidor(newTraza.getIdRepartidor());
             trazaRepository.save(traza);
             return ResponseEntity.ok().body(traza);
           }).orElse(new ResponseEntity<Traza>(HttpStatus.NOT_FOUND));
