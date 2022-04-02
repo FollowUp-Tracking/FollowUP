@@ -1,4 +1,4 @@
-/*package es.upm.dit.isst.followmeapi.controller;
+package es.upm.dit.isst.followmeapi.controller;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -37,7 +37,7 @@ public class PedidoController {
     @PostMapping("/pedidos")
     ResponseEntity<Pedido> create(@RequestBody Pedido newTFG) throws URISyntaxException {
         Pedido result = pedidoRepository.save(newTFG);
-        return ResponseEntity.created(new URI("/tfgs/" + result.getNumeroSeguimiento())).body(result);
+        return ResponseEntity.created(new URI("/pedidos/" + result.getNumeroSeguimiento())).body(result);
     }
 
     @GetMapping("/pedidos/{id}")
@@ -45,17 +45,12 @@ public class PedidoController {
         return pedidoRepository.findById(id).map(pedido -> ResponseEntity.ok().body(pedido)).orElse(new ResponseEntity<Pedido>(HttpStatus.NOT_FOUND));
     }
 
-    @PutMapping("/tfgs/{id}")
+    @PutMapping("/pedidos/{id}")
     ResponseEntity<Pedido> update(@RequestBody Pedido newPedido, @PathVariable String id) {
         return pedidoRepository.findById(id).map(pedido -> {
-            pedido.setOrigen(newPedido.getOrigen());
-            pedido.setDestino(newPedido.getDestino());
-            pedido.setFecha(newPedido.getFecha());
-            pedido.setProducto(newPedido.getProducto());
-            pedido.setCorreo(newPedido.getCorreo());
+            pedido.setIdCliente(newPedido.getIdCliente());
+            pedido.setIdVendedor(newPedido.getIdVendedor());
             pedido.setIdRepartidor(newPedido.getIdRepartidor());
-            pedido.setTrazas(newPedido.getTrazas());
-            pedido.setEmpresa(newPedido.getEmpresa());
             pedidoRepository.save(pedido);
             return ResponseEntity.ok().body(pedido);
           }).orElse(new ResponseEntity<Pedido>(HttpStatus.NOT_FOUND));
@@ -66,4 +61,4 @@ public class PedidoController {
       pedidoRepository.deleteById(id);
       return ResponseEntity.ok().body(null);
     }
-}*/
+}

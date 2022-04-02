@@ -2,11 +2,12 @@ package es.upm.dit.isst.followmeapi.model;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,9 +23,10 @@ public class Traza {
     private double longitud;
 
     private Date fecha;
-    
-    @Column(nullable = false, unique = true)
-    private int idPedido;
+
+    @ManyToOne()
+    @JoinColumn(name = "numero_seguimiento")
+    private Pedido pedido;
 
 
     public Traza() {
@@ -62,11 +64,11 @@ public class Traza {
         this.fecha = fecha;
     }
 
-    public int getIdPedido() {
-        return idPedido;
+    public Pedido getPedido() {
+        return pedido;
     }
 
-    public void setIdPedido(int idPedido) {
-        this.idPedido = idPedido;
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 }
