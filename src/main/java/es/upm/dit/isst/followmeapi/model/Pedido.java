@@ -19,6 +19,12 @@ public class Pedido {
     private int idVendedor;
 
     private int idRepartidor;
+
+    private int estado;
+
+    private double latitudDestino;
+
+    private double longitudDestino;
     
     @OneToMany(mappedBy = "pedido")
     private List<Traza> trazas;
@@ -58,4 +64,27 @@ public class Pedido {
         this.idRepartidor = idRepartidor;
     }
 
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+
+    public double getLatitudDestino() {
+        return latitudDestino;
+    }
+
+    public void setLatitudDestino(double latitudDestino) {
+        this.latitudDestino = latitudDestino;
+    }
+
+    public double getLongitudDestino() {
+        return longitudDestino;
+    }
+
+    public void setLongitudDestino(double longitudDestino) {
+        this.longitudDestino = longitudDestino;
+    }
 }
