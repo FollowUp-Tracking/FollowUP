@@ -61,4 +61,14 @@ public class PedidoController {
       pedidoRepository.deleteById(id);
       return ResponseEntity.ok().body(null);
     }
+
+    @GetMapping("/pedidos/cliente/{id}")
+    List<Pedido> readCliente(@PathVariable int id) {
+        return (List<Pedido>) pedidoRepository.findByIdCliente(id);
+    }
+
+    @GetMapping("/pedidos/vendedor/{id}")
+    List<Pedido> readVendedor(@PathVariable int id) {
+        return (List<Pedido>) pedidoRepository.findByIdVendedor(id);
+    }
 }
