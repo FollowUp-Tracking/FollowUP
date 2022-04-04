@@ -35,8 +35,8 @@ public class PedidoController {
     }
 
     @PostMapping("/pedidos")
-    ResponseEntity<Pedido> create(@RequestBody Pedido newTFG) throws URISyntaxException {
-        Pedido result = pedidoRepository.save(newTFG);
+    ResponseEntity<Pedido> create(@RequestBody Pedido newPedido) throws URISyntaxException {
+        Pedido result = pedidoRepository.save(newPedido);
         return ResponseEntity.created(new URI("/pedidos/" + result.getNumeroSeguimiento())).body(result);
     }
 
@@ -60,15 +60,5 @@ public class PedidoController {
     ResponseEntity<Pedido> delete(@PathVariable String id) {
       pedidoRepository.deleteById(id);
       return ResponseEntity.ok().body(null);
-    }
-
-    @GetMapping("/pedidos/cliente/{id}")
-    List<Pedido> readCliente(@PathVariable int id) {
-        return (List<Pedido>) pedidoRepository.findByIdCliente(id);
-    }
-
-    @GetMapping("/pedidos/vendedor/{id}")
-    List<Pedido> readVendedor(@PathVariable int id) {
-        return (List<Pedido>) pedidoRepository.findByIdVendedor(id);
     }
 }
