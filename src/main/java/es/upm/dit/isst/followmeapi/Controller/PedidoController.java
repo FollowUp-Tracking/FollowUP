@@ -1,4 +1,4 @@
-package es.upm.dit.isst.followmeapi.controller;
+package es.upm.dit.isst.followmeapi.Controller;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import es.upm.dit.isst.followmeapi.Repository.PedidoRepository;
 import es.upm.dit.isst.followmeapi.model.Pedido;
-import es.upm.dit.isst.followmeapi.repository.PedidoRepository;
 
 @RestController
 public class PedidoController {
@@ -48,9 +48,9 @@ public class PedidoController {
     @PutMapping("/pedidos/{id}")
     ResponseEntity<Pedido> update(@RequestBody Pedido newPedido, @PathVariable String id) {
         return pedidoRepository.findById(id).map(pedido -> {
-            pedido.setIdCliente(newPedido.getIdCliente());
-            pedido.setIdVendedor(newPedido.getIdVendedor());
-            pedido.setIdRepartidor(newPedido.getIdRepartidor());
+            pedido.setCliente(newPedido.getCliente());
+            pedido.setVendedor(newPedido.getVendedor());
+            pedido.setRepartidor(newPedido.getRepartidor());
             pedidoRepository.save(pedido);
             return ResponseEntity.ok().body(pedido);
           }).orElse(new ResponseEntity<Pedido>(HttpStatus.NOT_FOUND));
@@ -60,5 +60,20 @@ public class PedidoController {
     ResponseEntity<Pedido> delete(@PathVariable String id) {
       pedidoRepository.deleteById(id);
       return ResponseEntity.ok().body(null);
+    }
+
+    @GetMapping("/pedidos/cliente/{usuario}")
+    List<Pedido> readCliente(@PathVariable String usuario) {
+        return (List<Pedido>) pedidoRepository.findByCliente(usuario);
+    }
+
+    @GetMapping("/pedidos/vendedor/{usuario}")
+    List<Pedido> readVendedor(@PathVariable String usuario) {
+        return (List<Pedido>) pedidoRepository.findByVendedor(usuario);
+    }
+
+    @GetMapping("/pedidos/repartidor/{usuario}")
+    List<Pedido> readRepartidor(@PathVariable String usuario) {
+        return (List<Pedido>) pedidoRepository.findByRepartidor(usuario);
     }
 }

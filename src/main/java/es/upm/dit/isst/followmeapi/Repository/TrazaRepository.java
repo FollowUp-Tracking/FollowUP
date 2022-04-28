@@ -1,4 +1,4 @@
-package es.upm.dit.isst.followmeapi.repository;
+package es.upm.dit.isst.followmeapi.Repository;
 
 import org.springframework.data.repository.CrudRepository;
 

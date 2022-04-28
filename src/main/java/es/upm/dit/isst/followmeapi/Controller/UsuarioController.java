@@ -1,4 +1,4 @@
-package es.upm.dit.isst.followmeapi.controller;
+package es.upm.dit.isst.followmeapi.Controller;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import es.upm.dit.isst.followmeapi.Repository.UsuarioRepository;
 import es.upm.dit.isst.followmeapi.model.Usuario;
-import es.upm.dit.isst.followmeapi.repository.UsuarioRepository;
 
 @RestController
 public class UsuarioController {
