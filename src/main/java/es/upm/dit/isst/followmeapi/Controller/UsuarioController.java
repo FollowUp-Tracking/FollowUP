@@ -35,6 +35,7 @@ public class UsuarioController {
 
     @PostMapping("/usuarios")
     ResponseEntity<Usuario> create(@RequestBody Usuario newUsuario) throws URISyntaxException {
+        newUsuario.setEnable(true);
         Usuario result = usuarioRepository.save(newUsuario);
         return ResponseEntity.created(new URI("/usuario/" + result.getId())).body(result);
     }
@@ -51,6 +52,7 @@ public class UsuarioController {
             usuario.setEmail(newUsuario.getEmail());
             usuario.setPassword(newUsuario.getPassword());
             usuario.setRol(newUsuario.getRol());
+            usuario.setEnable(newUsuario.getEnable());
             usuarioRepository.save(usuario);
             return ResponseEntity.ok().body(usuario);
           }).orElse(new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND));

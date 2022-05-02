@@ -26,7 +26,7 @@ public class Usuario {
 
     private String rol; //ADM-Admin EMP-Empresa CLI-Cliente REP-Repartidor
 
-    private Boolean enabled;
+    private Boolean enable;
 
     public Usuario() {
     }
@@ -71,15 +71,11 @@ public class Usuario {
         this.rol = rol;
     }
 
-    public Boolean getEnabled() {
-        return enabled;
+    public Boolean getEnable() {
+        return enable;
     }
 
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    
-
-    
+    public void setEnable(Boolean enable) {
+        this.enable = enable;
+    }  
 }
