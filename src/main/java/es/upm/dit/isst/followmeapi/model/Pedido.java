@@ -25,6 +25,8 @@ public class Pedido {
     private double latitudDestino;
 
     private double longitudDestino;
+
+    private String vehiculo;
     
     @OneToMany(mappedBy = "pedido")
     private List<Traza> trazas;
@@ -86,5 +88,13 @@ public class Pedido {
 
     public void setLongitudDestino(double longitudDestino) {
         this.longitudDestino = longitudDestino;
+    }
+
+    public String getVehiculo() {
+        return vehiculo;
+    }
+
+    public void setVehiculo(String vehiculo) {
+        this.vehiculo = vehiculo;
     }
 }

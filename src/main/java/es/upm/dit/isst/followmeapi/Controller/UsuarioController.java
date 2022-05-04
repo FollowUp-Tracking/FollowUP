@@ -63,4 +63,13 @@ public class UsuarioController {
       usuarioRepository.deleteById(id);
       return ResponseEntity.ok().body(null);
     }
+
+    @PostMapping("/usuarios/habilitar/{id}")
+    ResponseEntity<Usuario> cambio(@RequestBody Usuario newUsuario, @PathVariable int id) {
+        return usuarioRepository.findById(id).map(usuario -> {
+            usuario.setEnable(newUsuario.getEnable());
+            usuarioRepository.save(usuario);
+            return ResponseEntity.ok().body(usuario);
+          }).orElse(new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND));
+    }
 }

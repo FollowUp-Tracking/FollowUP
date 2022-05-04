@@ -51,6 +51,7 @@ public class PedidoController {
             pedido.setCliente(newPedido.getCliente());
             pedido.setVendedor(newPedido.getVendedor());
             pedido.setRepartidor(newPedido.getRepartidor());
+            pedido.setVehiculo(newPedido.getVehiculo());
             pedidoRepository.save(pedido);
             return ResponseEntity.ok().body(pedido);
           }).orElse(new ResponseEntity<Pedido>(HttpStatus.NOT_FOUND));
@@ -81,6 +82,15 @@ public class PedidoController {
     ResponseEntity<Pedido> cambio(@RequestBody Pedido newPedido, @PathVariable String id) {
         return pedidoRepository.findById(id).map(pedido -> {
             pedido.setEstado(newPedido.getEstado());
+            pedidoRepository.save(pedido);
+            return ResponseEntity.ok().body(pedido);
+          }).orElse(new ResponseEntity<Pedido>(HttpStatus.NOT_FOUND));
+    }
+
+    @PostMapping("/pedidos/vehiculo/{id}")
+    ResponseEntity<Pedido> cambioVehiculo(@RequestBody Pedido newPedido, @PathVariable String id) {
+        return pedidoRepository.findById(id).map(pedido -> {
+            pedido.setVehiculo(newPedido.getVehiculo());
             pedidoRepository.save(pedido);
             return ResponseEntity.ok().body(pedido);
           }).orElse(new ResponseEntity<Pedido>(HttpStatus.NOT_FOUND));
