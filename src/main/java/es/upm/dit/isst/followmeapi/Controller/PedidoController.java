@@ -52,6 +52,7 @@ public class PedidoController {
             pedido.setVendedor(newPedido.getVendedor());
             pedido.setRepartidor(newPedido.getRepartidor());
             pedido.setVehiculo(newPedido.getVehiculo());
+            pedido.setEstado(newPedido.getEstado());
             pedidoRepository.save(pedido);
             return ResponseEntity.ok().body(pedido);
           }).orElse(new ResponseEntity<Pedido>(HttpStatus.NOT_FOUND));
@@ -76,23 +77,5 @@ public class PedidoController {
     @GetMapping("/pedidos/repartidor/{usuario}")
     List<Pedido> readRepartidor(@PathVariable String usuario) {
         return (List<Pedido>) pedidoRepository.findByRepartidor(usuario);
-    }
-
-    @PostMapping("/pedidos/estado/{id}")
-    ResponseEntity<Pedido> cambio(@RequestBody Pedido newPedido, @PathVariable String id) {
-        return pedidoRepository.findById(id).map(pedido -> {
-            pedido.setEstado(newPedido.getEstado());
-            pedidoRepository.save(pedido);
-            return ResponseEntity.ok().body(pedido);
-          }).orElse(new ResponseEntity<Pedido>(HttpStatus.NOT_FOUND));
-    }
-
-    @PostMapping("/pedidos/vehiculo/{id}")
-    ResponseEntity<Pedido> cambioVehiculo(@RequestBody Pedido newPedido, @PathVariable String id) {
-        return pedidoRepository.findById(id).map(pedido -> {
-            pedido.setVehiculo(newPedido.getVehiculo());
-            pedidoRepository.save(pedido);
-            return ResponseEntity.ok().body(pedido);
-          }).orElse(new ResponseEntity<Pedido>(HttpStatus.NOT_FOUND));
     }
 }
