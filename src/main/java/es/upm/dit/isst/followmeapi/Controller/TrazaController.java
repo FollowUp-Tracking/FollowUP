@@ -51,7 +51,7 @@ public class TrazaController {
             traza.setLatitud(newTraza.getLatitud());
             traza.setLongitud(newTraza.getLongitud());
             traza.setFecha(newTraza.getFecha());
-            traza.setPedido(newTraza.getPedido());
+            traza.setNumeroSeguimiento(newTraza.getNumeroSeguimiento());
             trazaRepository.save(traza);
             return ResponseEntity.ok().body(traza);
           }).orElse(new ResponseEntity<Traza>(HttpStatus.NOT_FOUND));
@@ -61,5 +61,10 @@ public class TrazaController {
     ResponseEntity<Traza> delete(@PathVariable Integer id) {
       trazaRepository.deleteById(id);
       return ResponseEntity.ok().body(null);
+    }
+
+    @GetMapping("/trazas/pedido/{id}")
+    List<Traza> readRepartidor(@PathVariable String id) {
+        return (List<Traza>) trazaRepository.findByNumeroSeguimiento(id);
     }
 }

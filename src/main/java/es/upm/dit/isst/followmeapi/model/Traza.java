@@ -6,8 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,9 +22,7 @@ public class Traza {
 
     private Date fecha;
 
-    @ManyToOne()
-    @JoinColumn(name = "numero_seguimiento")
-    private Pedido pedido;
+    private String numeroSeguimiento;
 
 
     public Traza() {
@@ -64,11 +60,11 @@ public class Traza {
         this.fecha = fecha;
     }
 
-    public Pedido getPedido() {
-        return pedido;
+    public String getNumeroSeguimiento() {
+        return numeroSeguimiento;
     }
 
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
+    public void setNumeroSeguimiento(String numeroSeguimiento) {
+        this.numeroSeguimiento = numeroSeguimiento;
     }
 }

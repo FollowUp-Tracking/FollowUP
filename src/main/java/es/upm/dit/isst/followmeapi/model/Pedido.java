@@ -1,10 +1,7 @@
 package es.upm.dit.isst.followmeapi.model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,9 +24,6 @@ public class Pedido {
     private double longitudDestino;
 
     private String vehiculo;
-    
-    @OneToMany(mappedBy = "pedido")
-    private List<Traza> trazas;
     
     public Pedido() {
     }
