@@ -1,8 +1,8 @@
 <h3 align="center">FollowUp Backend</h3>
 
 <h3 align="left">Comentarios:</h3>
-<h1 aling="left">La rama *master contine el codigo completo</h1>
-<h1 aling="left">Para el funcionamiento del back-end junto con MySQL en necesario contar con el Workbench de MySQL y adaptar los datos de usuario y contraseña usados</h1>
+<h5 aling="left">La rama *master contine el codigo completo</h5>
+<h5 aling="left">Para el funcionamiento del back-end junto con MySQL en necesario contar con el Workbench de MySQL y adaptar los datos de usuario y contraseña usados</h5>
 <p align="left">
 </p>
 
