@@ -78,4 +78,14 @@ public class PedidoController {
     List<Pedido> readRepartidor(@PathVariable String usuario) {
         return (List<Pedido>) pedidoRepository.findByRepartidor(usuario);
     }
+
+    @GetMapping("/pedidos/analisis/vehiculo/coche")
+    List<Pedido> readVehiculoCoche() {
+        return (List<Pedido>) pedidoRepository.findByVehiculo("coche");
+    }
+
+    @GetMapping("/pedidos/analisis/vehiculo/bici")
+    List<Pedido> readVehiculoBici() {
+        return (List<Pedido>) pedidoRepository.findByVehiculo("bici");
+    }
 }

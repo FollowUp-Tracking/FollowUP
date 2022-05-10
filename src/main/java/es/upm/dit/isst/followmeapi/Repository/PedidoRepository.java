@@ -10,4 +10,5 @@ public interface PedidoRepository extends CrudRepository<Pedido, String> {
     List<Pedido> findByCliente(String cliente);
     List<Pedido> findByVendedor(String vendedor);
     List<Pedido> findByRepartidor(String repartidor);
+    List<Pedido> findByVehiculo(String vehiculo);
 }
