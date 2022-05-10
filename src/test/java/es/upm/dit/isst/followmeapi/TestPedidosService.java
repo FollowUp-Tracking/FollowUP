@@ -43,5 +43,9 @@ public class TestPedidosService {
         repo.save(pedido);
 
         assertNotNull(repo.findByRepartidor("pablo"));
+
+        repo.delete(pedido);
+        pedido2 = repo.findById("pedido1");
+        assertFalse(pedido2.isPresent());
     }
 }
