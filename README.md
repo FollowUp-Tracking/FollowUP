@@ -2,7 +2,7 @@
 
 <h3 align="left">Comentarios:</h3>
 <h5 aling="left">La rama *master contine el codigo completo</h5>
-<h5 aling="left">Para el funcionamiento del back-end junto con MySQL en necesario contar con el Workbench de MySQL y adaptar los datos de usuario y contraseña usados</h5>
+<h5 aling="left">Para el funcionamiento del front-end junto con MySQL es necesario contar con el Workbench de MySQL y adaptar los datos de <i>nombre de la base de datos</i> (spring.datasource.url), <i>usuario</i> (spring.datasource.username) y <i>contraseña</i> (spring.datasource.password) usados en <b>application.porperties</b></h5>
 <p align="left">
 </p>
 
