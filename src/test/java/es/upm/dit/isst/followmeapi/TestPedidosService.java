@@ -39,8 +39,6 @@ public class TestPedidosService {
         repo.save(pedido);
         pedido2 = repo.findById("pedido1");
         assertNotEquals(pedido2.get().getCliente(), "jaime");
-        pedido.setCliente("jaime");
-        repo.save(pedido);
 
         assertNotNull(repo.findByRepartidor("pablo"));
 
